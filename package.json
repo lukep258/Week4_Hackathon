@@ -1,0 +1,10 @@
+{
+    "name": "week4_hackathon",
+    "version": "0.0.1",
+    "description": "hackathon project",
+    "type": "commonjs",
+    "dependencies": {
+        "express": "^4.18.2",
+        "socket.io": "^4.7.2"
+    }
+}
