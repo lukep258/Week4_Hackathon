@@ -18,6 +18,7 @@ io.on('connection', (socket) => {
   console.log(joinedIDs[socket.id])
   socket.join(joinedIDs[socket.id])
   io.to(joinedIDs[socket.id]).emit('player info',`player${joinedIDs[socket.id]+1}`)
+  
   if(joinedIDs[socket.id]===0){
     io.to(joinedIDs[socket.id]).emit('chat message','start the game')
     socket.on('chat message', (msg) => {
@@ -26,6 +27,7 @@ io.on('connection', (socket) => {
         io.to(joinedIDs[socket.id]+1).emit('chat message', msg);
     });
   }
+
   else{
     socket.on('chat message', (msg) => {
       console.log('server received')
@@ -33,6 +35,7 @@ io.on('connection', (socket) => {
       io.to(joinedIDs[socket.id]+1).emit('chat message', msg);
     });
   }
+
   io.on('disconnection',(socket)=>{
     socket.leave(joinedIDs[socketID])
     delete joinedIDs[socketID]

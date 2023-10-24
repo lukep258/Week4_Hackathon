@@ -9,6 +9,7 @@
     <link href="stylesheet" rel="main.css">
 </head>
 <body>
+    <h1>telephone game</h1>
     <ul id="messages"></ul>
     <form id="form" action="">
       <input id="input" autocomplete="off" /><button>Send</button>
@@ -45,7 +46,7 @@
             original = msg;
         })
         socket.on('player info',(msg)=>{
-            const player = document.createElement('h1');
+            const player = document.createElement('h3');
             console.log(msg)
             player.textContent = msg;
             messages.prepend(player);
