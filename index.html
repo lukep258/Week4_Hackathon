@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week4 Hackathon Project</title>
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
-    <script defer src="main.js"></script>
+    <script defer src="main.js" type="text/js"></script>
     <link href="stylesheet" rel="main.css">
 </head>
 <body>
@@ -35,6 +35,9 @@
             item.textContent = msg;
             messages.appendChild(item);
             window.scrollTo(0,document.body.scrollHeight);
+            setTimeout(()=>{
+                messages.removeChild(item);
+            },3000)
         })
     </script>
 </body>
