@@ -20,15 +20,15 @@
         const input = document.getElementById('input');
         const messages = document.getElementById('messages');
 
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            if (input.value) {
-                console.log('client sending');
-                socket.emit('chat message', input.value);
-                input.value = '';
-            }
-        });
 
+        form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (input.value) {
+                    console.log('client sending');
+                    socket.emit('chat message', input.value);
+                    input.value = '';
+                }
+            });
         socket.on('chat message',(msg)=>{
             console.log('client received')
             const item = document.createElement('li');
@@ -38,6 +38,12 @@
             setTimeout(()=>{
                 messages.removeChild(item);
             },3000)
+        })
+        socket.on('player info',(msg)=>{
+            const player = document.createElement('h1');
+            console.log(msg)
+            player.textContent = msg;
+            messages.prepend(player);
         })
     </script>
 </body>
